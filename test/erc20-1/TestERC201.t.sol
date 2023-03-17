@@ -4,7 +4,10 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "../../src/erc20-1/MyToken.sol";
 
-contract TestERC20_1 is Test {
+/**
+@dev run "forge test --match-contract ERC201" 
+*/
+contract TestERC201 is Test {
     MyToken public myToken;
     address deployer;
     address user1;
