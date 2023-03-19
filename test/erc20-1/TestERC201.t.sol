@@ -26,25 +26,32 @@ contract TestERC201 is Test {
         user2 = address(3);
         user3 = address(4);
 
+        // TODO: Minting
         myToken.mint(deployer, DEPLOYER_MINT);
         myToken.mint(user1, USERS_MINT);
         myToken.mint(user2, USERS_MINT);
         myToken.mint(user3, USERS_MINT);
+
+        // TODO: Check Minting
         assertEq(myToken.balanceOf(deployer), DEPLOYER_MINT);
         assertEq(myToken.balanceOf(user2), USERS_MINT);
     }
 
     function testTransfers() public {
+        /** Transfers Tests */
+        // TODO: First transfer
         vm.prank(user2);
         myToken.transfer(user3, FIRST_TRANSFER);
 
+        // TODO: Approval & Allowance test
         vm.prank(user3);
         myToken.approve(user1, SECOND_TRANSFER);
         assertEq(myToken.allowance(user3, user1), SECOND_TRANSFER);
-
+        // TODO: Second transfer
         vm.prank(user1);
         myToken.transferFrom(user3, user1, SECOND_TRANSFER);
 
+        // TODO: Checking balances after transfer
         assertEq(myToken.balanceOf(user1), USERS_MINT + SECOND_TRANSFER);
         assertEq(myToken.balanceOf(user2), USERS_MINT - FIRST_TRANSFER);
         assertEq(myToken.balanceOf(user3), USERS_MINT - SECOND_TRANSFER + FIRST_TRANSFER);

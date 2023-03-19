@@ -6,7 +6,7 @@ import "forge-std/console.sol";
 import "../../src/erc721-1/MyNFT.sol";
 
 /**
-@dev run "forge test --match-contract ERC201" 
+@dev run "forge test --match-contract ERC7211" 
 */
 contract TestERC7211 is Test {
     MyNFT public myNft;

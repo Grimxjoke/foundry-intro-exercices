@@ -7,7 +7,7 @@ import "../../src/erc721-2/OpenOcean.sol";
 import "../../src/utils/DummyERC721.sol";
 
 /**
-@dev run "forge test --match-contract ERC201" 
+@dev run "forge test --match-contract ERC7212" 
 */
 contract TestERC7212 is Test {
     uint128 public constant CUTE_NFT_PRICE = 5 ether;

@@ -6,7 +6,7 @@ import "../../src/randomness-vulnerabilities-2/Game2.sol";
 import "../../src/randomness-vulnerabilities-2/Attack.sol";
 
 /**
-@dev run "forge test --match-contract ERC201" 
+@dev run "forge test --match-contract RV2" 
 */
 contract TestRV2 is Test {
     uint128 public constant GAME_POT = 20 ether;
