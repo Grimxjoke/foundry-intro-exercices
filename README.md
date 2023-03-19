@@ -3,8 +3,8 @@ Foundry version of SCH course exercises - Part 1
 
 ## Progress
 - [x] ERC20
-- [ ] ERC721
-- [ ] Randomness Vulnerabilities
+- [x] ERC721
+- [x] Randomness Vulnerabilities
 - [ ] Arithmetic Overflows and Underflows
 - [ ] Phishing Attacks
 - [ ] Reentrancy Attacks
