@@ -36,7 +36,7 @@ contract TestAO4 is Test {
     }
 
     function test() public {
-        console.log("Exploiting...");
+        console.log("[+]Exploiting...");
 
         vm.startPrank(attacker);
 
