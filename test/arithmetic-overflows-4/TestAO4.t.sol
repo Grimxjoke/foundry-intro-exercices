@@ -7,7 +7,7 @@ import "forge-std/console.sol";
 import "../../src/arithmetic-overflows-4/PumpMeToken.sol";
 
 /**
-@dev run "forge test --match-contract AO2" 
+@dev run "forge test --match-contract AO4" 
 */
 contract TestAO4 is Test {
     PumpMeToken token;
