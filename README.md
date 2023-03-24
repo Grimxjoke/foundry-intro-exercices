@@ -12,10 +12,10 @@ Foundry version of SCH course exercises - Part 1
 
 ## Progress
 
-- [x] ERC20
-- [x] ERC721
-- [x] Randomness Vulnerabilities
-- [x] Arithmetic Overflows and Underflows
-- [x] Phishing Attacks
-- [ ] Reentrancy Attacks
-- [x] Access Control Vulnerabilities
+- :white_check_mark: ERC20
+- :white_check_mark: ERC721
+- :white_check_mark: Randomness Vulnerabilities
+- :white_check_mark: Arithmetic Overflows and Underflows
+- :white_check_mark: Phishing Attacks
+- :eight_spoked_asterisk: Reentrancy Attacks
+- :white_check_mark: Access Control Vulnerabilities
