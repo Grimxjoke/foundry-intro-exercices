@@ -3,7 +3,13 @@
 ![image](https://user-images.githubusercontent.com/91771249/227430056-d7971b2d-d707-49df-a10e-93c4118c76a6.png)
 Credit: Paradigm
 
+## Quick Setup
 
+> `git clone https://github.com/johnny-sch-course/foundry-sch-exercises-part-1`
+
+> `cd foundry-sch-exercises-part-1`
+
+> `forge init --force`
 
 ## Running the tests
 
