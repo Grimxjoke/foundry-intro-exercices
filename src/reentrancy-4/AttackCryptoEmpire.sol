@@ -32,11 +32,11 @@ contract AttackCryptoEmpire is Ownable {
     // Receive a callback
     // Unstake again until we got all tokens (tokenId 2)
     function onERC1155Received(
-        address operator,
-        address from,
+        address /*operator*/,
+        address /*from*/,
         uint256 id,
-        uint256 amount,
-        bytes calldata data
+        uint256 /*amount*/,
+        bytes calldata /*data*/
     ) external returns (bytes4 response) {
         if (!tokenTransfered) {
             tokenTransfered = true;

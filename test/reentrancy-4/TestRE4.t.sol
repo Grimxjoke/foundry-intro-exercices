@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import "../../src/reentrancy-4/AttackCryptoEmpire.sol";
 import "../../src/reentrancy-4/CryptoEmpireGame.sol";
 import "../../src/reentrancy-4/CryptoEmpireToken.sol";
+import "../../src/reentrancy-4/GameItems.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
@@ -20,12 +21,6 @@ contract TestRE4 is Test {
     address user2;
     address attacker;
 
-    CryptoEmpireToken.NftId public nftId;
-
-    function getEnum() public {
-        return nftId;
-    }
-
     function setUp() public {
         deployer = address(1);
         user1 = address(2);
@@ -37,20 +32,26 @@ contract TestRE4 is Test {
         game = new CryptoEmpireGame(address(token));
 
         // Giving 1 NFT to each user
-        token.mint(user1, 1, nftId.HELMET);
-        token.mint(user2, 1, 0);
-        token.mint(attacker, 1, 2);
+        token.mint(user1, 1, NftId.HELMET);
+        token.mint(user2, 1, NftId.HELMET);
+        token.mint(attacker, 1, NftId.ARMOUR);
 
         // The CryptoEmpire game gained many users already and has some NFTs either staked or listed in it
-        token.mint(address(game), 20, 0);
+        token.mint(address(game), 20, NftId.HELMET);
+        token.mint(address(game), 20, NftId.SWORD);
+        token.mint(address(game), 20, NftId.ARMOUR);
+        token.mint(address(game), 20, NftId.SHIELD);
+        token.mint(address(game), 20, NftId.CROSSBOW);
+        token.mint(address(game), 20, NftId.DAGGER);
 
         vm.stopPrank();
     }
 
     function test_Attack() public {
         vm.startPrank(attacker);
-        attackgame = new AttackCryptoEmpire(address(game), address(token));
-
+        attackgame = new AttackCryptoEmpire(address(token), address(game));
+        token.safeTransferFrom(attacker, address(attackgame), 2, 1, "0x");
+        attackgame.attack();
         vm.stopPrank();
     }
 }
