@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
 // SCH Course Copyright Policy (C): DO-NOT-SHARE-WITH-ANYONE
 // https://smartcontractshacking.com/#copyright-policy
 pragma solidity ^0.8.13;
@@ -7,7 +8,6 @@ pragma solidity ^0.8.13;
  * @author JohnnyTime (https://smartcontractshacking.com)
  */
 contract Game2 {
-
     // Calculate wins in a row for every player
     mapping(address => uint) public players;
     uint256 lastValue;
@@ -16,7 +16,6 @@ contract Game2 {
     constructor() payable {}
 
     function play(bool _guess) external payable {
-        
         require(msg.value == 1 ether, "Playing costs 1 ETH");
 
         // uint representation of previous block hash
@@ -29,11 +28,10 @@ contract Game2 {
         bool answer = random == 1 ? true : false;
 
         if (answer == _guess) {
-
             players[msg.sender]++;
 
             // Did pleayer win 5 times in a row?
-            if(players[msg.sender] == MIN_WINS_IN_A_ROW) {
+            if (players[msg.sender] == MIN_WINS_IN_A_ROW) {
                 (bool sent, ) = msg.sender.call{value: address(this).balance}("");
                 require(sent, "Failed to send ETH");
                 players[msg.sender] = 0;
