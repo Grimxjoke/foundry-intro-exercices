@@ -1,6 +1,9 @@
-# foundry-sch-exercises-part-1
+# SCH Exercises Part 1 [Foundry Version]
 
-Foundry version of SCH course exercises - Part 1
+![image](https://user-images.githubusercontent.com/91771249/227430056-d7971b2d-d707-49df-a10e-93c4118c76a6.png)
+Credit: Paradigm
+
+
 
 ## Running the tests
 
