@@ -15,17 +15,15 @@ contract CryptoEmpireToken is ERC1155, Ownable {
         DAGGER
     }
 
+    //NftId public nftId;
+
     constructor() ERC1155("someuri") {}
 
     function setURI(string memory _newuri) public onlyOwner {
         _setURI(_newuri);
     }
 
-    function mint(
-        address _account,
-        uint256 _amount,
-        NftId _id
-    ) public onlyOwner {
+    function mint(address _account, uint256 _amount, NftId _id) public onlyOwner {
         _mint(_account, uint256(_id), _amount, "");
     }
 }
