@@ -16,6 +16,6 @@ Foundry version of SCH course exercises - Part 1
 - [x] ERC721
 - [x] Randomness Vulnerabilities
 - [x] Arithmetic Overflows and Underflows
-- [ ] Phishing Attacks
+- [x] Phishing Attacks
 - [ ] Reentrancy Attacks
-- [ ] Access Control Vulnerabilities
+- [x] Access Control Vulnerabilities

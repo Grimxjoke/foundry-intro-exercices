@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: GPL-3.0-or-later 
+// SCH Course Copyright Policy (C): DO-NOT-SHARE-WITH-ANYONE
+// https://smartcontractshacking.com/#copyright-policy
 pragma solidity ^0.7.0;
 
 /**
@@ -21,7 +22,6 @@ contract TimeLock {
     }
 
     function withdrawETH() public {
-
         require(getBalance[msg.sender] > 0);
         require(block.timestamp > getLocktime[msg.sender]);
 
