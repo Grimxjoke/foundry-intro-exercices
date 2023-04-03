@@ -5,7 +5,7 @@ _{Credit: Paradigm}_
 
 - For those of you who would like to get started with Foundry, you can perform the exercises of Foundry version after completing the hardhat version. I've tried to keep the files similar to the hardhat version so you can understand what a particular line of code in Foundry does 🔥 This will help you to learn Foundry in a very practical way 😀
 
-- Once you are familiar with foundry tests, try to implement them yourself 💪. You will learn a lot like forking, importing & deploying contracts directly (and also using only contract's bytecode) and much more...
+- Once you are familiar with foundry tests, try to implement them yourself 💪.
 
 ## Quick Setup
 
