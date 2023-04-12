@@ -32,4 +32,15 @@ _{Credit: Paradigm}_
 
 ## Status
 
-1. :white_check_mark: DEX
+1.  🟢 DEX
+2.  ⚪ Money Markets
+3.  ⚪ Replay Attacks
+4.  ⚪ Flash Loans & Flash Swaps
+5.  ⚪ Flash Loan Attacks
+6.  ⚪ DoS Attacks
+7.  ⚪ Sensitive On-Chain Data
+8.  ⚪ Unchecked Returns
+9.  ⚪ Frontrunning
+10. ⚪ DAO & Governance Attacks
+11. ⚪ Oracle Manipulation
+12. ⚪ Call Attacks
