@@ -7,6 +7,8 @@ _{Credit: Paradigm}_
 
 - Once you are familiar with foundry tests, try to implement them yourself 💪.
 
+- Follow me on Twitter: [3agle](https://twitter.com/0x_3agle)
+
 ## Quick Setup
 
 ```bash
@@ -26,7 +28,7 @@ forge init --force
   ```
 
   ```bash
-  forge test --match-contract TestERC201
+  forge test --match-contract TestDEX1
   ```
 
 - Forking Mainnet:
