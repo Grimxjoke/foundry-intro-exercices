@@ -32,19 +32,15 @@ contract Chocolate is ERC20, Ownable {
     constructor(uint256 _initialMint) ERC20("Chocolate Token", "Choc") {
         // TODO: Mint tokens to owner
         _mint(msg.sender, _initialMint);
+
         // TODO: SET Uniswap Router Contract
-        uniswapV2Router = IUniswapV2Router02(
-            0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D
-        );
+        uniswapV2Router = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
 
         // TODO: Set WETH (get it from the router)
         weth = uniswapV2Router.WETH();
 
         // TODO: Create a uniswap Pair with WETH, and store it in the contract
-        uniswapV2Pair = IUniswapV2Factory(uniswapV2Router.factory()).createPair(
-                address(this),
-                weth
-            );
+        uniswapV2Pair = IUniswapV2Factory(uniswapV2Router.factory()).createPair(address(this), weth);
     }
 
     /*
@@ -52,9 +48,7 @@ contract Chocolate is ERC20, Ownable {
         @dev payable, received Native ETH and converts it to WETH
         @dev lp tokens are sent to contract owner
     */
-    function addChocolateLiquidity(
-        uint256 _tokenAmount
-    ) external payable onlyOwner {
+    function addChocolateLiquidity(uint256 _tokenAmount) external payable onlyOwner {
         // TODO: Transfer the tokens from the sender to the contract
         // Sender should approve the contract spending the chocolate tokens
         _transfer(msg.sender, address(this), _tokenAmount);
@@ -67,16 +61,7 @@ contract Chocolate is ERC20, Ownable {
         _approve(address(this), address(uniswapV2Router), _tokenAmount);
 
         // TODO: Add the liquidity, using the router, send lp tokens to the contract owner
-        uniswapV2Router.addLiquidity(
-            address(this),
-            weth,
-            _tokenAmount,
-            msg.value,
-            1,
-            1,
-            owner(),
-            block.timestamp
-        );
+        uniswapV2Router.addLiquidity(address(this), weth, _tokenAmount, msg.value, 1, 1, owner(), block.timestamp);
     }
 
     /*
@@ -84,31 +69,14 @@ contract Chocolate is ERC20, Ownable {
         @dev received `_lpTokensToRemove`, removes the liquidity
         @dev and sends the tokens to the contract owner
     */
-    function removeChocolateLiquidity(
-        uint256 _lpTokensToRemove
-    ) external onlyOwner {
+    function removeChocolateLiquidity(uint256 _lpTokensToRemove) external onlyOwner {
         // TODO: Transfer the lp tokens from the sender to the contract
         // Sender should approve token spending for the contract
-        IERC20(uniswapV2Pair).transferFrom(
-            owner(),
-            address(this),
-            _lpTokensToRemove
-        );
+        IERC20(uniswapV2Pair).transferFrom(owner(), address(this), _lpTokensToRemove);
         // TODO: Approve the router to spend the tokens
-        IERC20(uniswapV2Pair).approve(
-            address(uniswapV2Router),
-            _lpTokensToRemove
-        );
+        IERC20(uniswapV2Pair).approve(address(uniswapV2Router), _lpTokensToRemove);
         // TODO: Remove the liquiduity using the router, send tokens to the owner
-        uniswapV2Router.removeLiquidity(
-            address(this),
-            weth,
-            _lpTokensToRemove,
-            1,
-            1,
-            owner(),
-            block.timestamp
-        );
+        uniswapV2Router.removeLiquidity(address(this), weth, _lpTokensToRemove, 1, 1, owner(), block.timestamp);
     }
 
     /*
@@ -116,10 +84,7 @@ contract Chocolate is ERC20, Ownable {
         @dev received `_lpTokensToRemove`, removes the liquidity
         @dev and sends the tokens to the contract user that swapped
     */
-    function swapChocolates(
-        address _tokenIn,
-        uint256 _amountIn
-    ) public payable {
+    function swapChocolates(address _tokenIn, uint256 _amountIn) public payable {
         // TODO: Implement a dynamic function to swap Chocolate to ETH or ETH to Chocolate
         address[] memory path = new address[](2);
 
@@ -146,12 +111,6 @@ contract Chocolate is ERC20, Ownable {
         }
 
         // TODO: Execute the swap, send the tokens (chocolate / weth) directly to the user (msg.sender)
-        uniswapV2Router.swapExactTokensForTokens(
-            _amountIn,
-            0,
-            path,
-            msg.sender,
-            block.timestamp
-        );
+        uniswapV2Router.swapExactTokensForTokens(_amountIn, 0, path, msg.sender, block.timestamp);
     }
 }
