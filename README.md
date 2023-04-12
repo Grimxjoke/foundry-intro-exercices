@@ -9,26 +9,37 @@ _{Credit: Paradigm}_
 
 ## Quick Setup
 
-> `git clone https://github.com/johnny-sch-course/foundry-sch-exercises-part-2`
+```bash
+git clone https://github.com/johnny-sch-course/foundry-sch-exercises-part-2
 
-> `cd foundry-sch-exercises-part-2`
+cd foundry-sch-exercises-part-2
 
-> `forge init --force`
+forge init --force
+```
 
 ## Running the tests
 
 - General command:
 
-  > `forge test --match-contract {Contract_Name}`
+  ```bash
+  forge test --match-contract {Contract_Name}
+  ```
 
-  > `forge test --match-contract TestERC201`
+  ```bash
+  forge test --match-contract TestERC201
+  ```
 
 - Forking Mainnet:
 
-  > `forge test --fork-url $ETH_RPC_URL --fork-block-number $BLOCK_NUMBER --match-contract {Contract_Name}`
+  ```bash
+  forge test --fork-url $ETH_RPC_URL --fork-block-number $BLOCK_NUMBER --match-contract {Contract_Name}
+  ```
 
 - To see step-wise execution of your exploit, append following to the commands
-  > `-vvvvv`
+
+  ```bash
+  -vvvvv
+  ```
 
 ## Status
 
