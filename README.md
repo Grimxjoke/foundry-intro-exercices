@@ -1,13 +1,13 @@
 # SCH Exercises Part 2 [Foundry Version]
 
+By [3agle](https://twitter.com/0x_3agle)
+
 ![image](https://user-images.githubusercontent.com/91771249/227430056-d7971b2d-d707-49df-a10e-93c4118c76a6.png)
 _{Credit: Paradigm}_
 
 - For those of you who would like to get started with Foundry, you can perform the exercises of Foundry version after completing the hardhat version. I've tried to keep the files similar to the hardhat version so you can understand what a particular line of code in Foundry does 🔥 This will help you to learn Foundry in a very practical way 😀
 
 - Once you are familiar with foundry tests, try to implement them yourself 💪.
-
-- Follow me on Twitter: [3agle](https://twitter.com/0x_3agle)
 
 ## Quick Setup
 
