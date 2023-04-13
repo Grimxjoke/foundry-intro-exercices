@@ -46,7 +46,7 @@ forge init --force
 ## Status
 
 1.  🟢 DEX
-2.  ⚪ Money Markets
+2.  🟢 Money Markets
 3.  ⚪ Replay Attacks
 4.  ⚪ Flash Loans & Flash Swaps
 5.  ⚪ Flash Loan Attacks
