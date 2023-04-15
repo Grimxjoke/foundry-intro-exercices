@@ -6,17 +6,15 @@ interface IReceiver {
     function getETH() external payable;
 }
 
-/**
- * @title Pool
- * @author JohnnyTime (https://smartcontractshacking.com)
- */
 contract Pool {
-    
     constructor() payable {}
 
     // TODO: Complete this function
     function flashLoan(uint256 amount) external {
-
+        uint256 balanceBefore = address(this).balance;
+        require(balanceBefore >= amount, "Not Enough ETH");
+        IReceiver(msg.sender).getETH{value: amount}();
+        require(address(this).balance >= balanceBefore, "Flashloan not paid back!!!");
     }
 
     receive() external payable {}

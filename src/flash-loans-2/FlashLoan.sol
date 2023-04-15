@@ -17,15 +17,45 @@ contract FlashLoan {
         pool = ILendingPool(_pool);
     }
 
-    // TODO: Implement this function
-    function getFlashLoan(address token, uint amount) external {}
+    function getFlashLoan(address token, uint amount) external {
+        console.log("Balance before flash loan: %s", IERC20(token).balanceOf(address(this)));
 
-    // TODO: Implement this function
+        address[] memory tokens = new address[](1);
+        tokens[0] = token;
+        uint256[] memory amounts = new uint256[](1);
+        amounts[0] = amount;
+        uint256[] memory modes = new uint256[](1);
+        modes[0] = 0;
+
+        pool.flashLoan(address(this), tokens, amounts, modes, address(this), "0x", 0);
+    }
+
     function executeOperation(
         address[] memory assets,
         uint256[] memory amounts,
         uint256[] memory premiums,
         address initiator,
         bytes memory params
-    ) public returns (bool) {}
+    ) public returns (bool) {
+        require(msg.sender == address(pool), "not pool");
+        require(initiator == address(this), "I didn't initiate this flash loan");
+
+        IERC20 token;
+
+        for (uint256 i = 0; i < assets.length; i++) {
+            token = IERC20(assets[i]);
+
+            console.log("contract's token balance during the flash loan: %s", token.balanceOf(address(this)));
+
+            // ~~ Flash Loan Assets ~~ ///
+            // ~~ We can do whatever we wanted with the borrowed assets ~~ //
+            console.log("Flash loan fee: %s", premiums[i]);
+            console.log("Flash loan amount: %s", amounts[i]);
+
+            uint256 owed = amounts[i] + premiums[i];
+            token.approve(address(pool), owed);
+        }
+
+        return true;
+    }
 }
