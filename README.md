@@ -47,7 +47,7 @@ forge init --force
 
 1.  🟢 DEX
 2.  🟢 Money Markets
-3.  🟡 Replay Attacks {Currently not possible in pure solidity due to signature limitations}
+3.  🟡 Replay Attacks {Only first challenge}
 4.  🟢 Flash Loans & Flash Swaps
 5.  ⚪ Flash Loan Attacks
 6.  ⚪ DoS Attacks
