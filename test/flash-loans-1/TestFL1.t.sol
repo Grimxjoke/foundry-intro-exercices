@@ -18,13 +18,10 @@ contract TestFL1 is Test {
     Receiver receiver;
     Pool pool;
 
-    address user;
-    address deployer;
+    address deployer = makeAddr("deployer");
+    address user = makeAddr("user");
 
     function setUp() public {
-        deployer = address(123);
-        user = address(456);
-
         vm.deal(deployer, POOL_BALANCE);
         // TODO: Deploy Pool.sol contract with 1,000 ETH
         vm.prank(deployer);

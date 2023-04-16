@@ -24,7 +24,7 @@ contract TestMM2 is Test {
     uint128 constant AMOUNT_TO_DEPOSIT = 10000e6;
     uint128 constant AMOUNT_TO_BORROW = 100 ether;
 
-    address user;
+    address user = makeAddr("user");
 
     CompoundUser compUser;
     IERC20 usdc;
@@ -33,8 +33,11 @@ contract TestMM2 is Test {
     IERC20 cDai;
 
     function setUp() public {
-        user = address(456);
-
+        vm.label(USDC, "USDC");
+        vm.label(DAI, "DAI");
+        vm.label(C_USDC, "cUSDC");
+        vm.label(C_DAI, "cDAI");
+        
         // Load tokens
         vm.startPrank(user);
         usdc = IERC20(USDC);

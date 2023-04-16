@@ -25,8 +25,8 @@ contract TestDEX2 is Test {
     uint128 constant ETH_TO_INVEST = 35 ether;
     uint128 constant MIN_AMOUNT_OUT = 1750 ether;
 
-    address liquidityAdder;
-    address user;
+    address liquidityAdder = makeAddr("liquidityAdder");
+    address user = makeAddr("user");
 
     IWETH9 weth = IWETH9(WETH_ADDRESS);
     IUniswapV2Router02 router;
@@ -34,8 +34,10 @@ contract TestDEX2 is Test {
     Sniper sniper;
 
     function setUp() public {
-        liquidityAdder = address(123);
-        user = address(456);
+        vm.label(WETH_ADDRESS, "WETH");
+        vm.label(UNISWAPV2_ROUTER_ADDRESS, "UniswapV2Router02");
+        vm.label(UNISWAPV2_FACTORY_ADDRESS, "UniswapV2Factory");
+
         // Set ETH balance
         vm.deal(liquidityAdder, ETH_BALANCE);
         vm.deal(user, ETH_BALANCE);
