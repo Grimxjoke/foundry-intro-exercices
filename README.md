@@ -1,6 +1,5 @@
 # SCH Exercises Part 2 [Foundry Version]
 
-By [3agle](https://twitter.com/0x_3agle)
 
 ![image](https://user-images.githubusercontent.com/91771249/227430056-d7971b2d-d707-49df-a10e-93c4118c76a6.png)
 _{Credit: Paradigm}_
