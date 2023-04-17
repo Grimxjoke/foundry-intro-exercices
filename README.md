@@ -45,7 +45,7 @@ forge init --force
 
 1.  🟢 DEX
 2.  🟢 Money Markets
-3.  🟡 Replay Attacks {PRs accepted for exercise 3}
+3.  🟣 Replay Attacks {Challenge: Exercise 3}
 4.  🟢 Flash Loans & Flash Swaps
 5.  ⚪ Flash Loan Attacks
 6.  ⚪ DoS Attacks
