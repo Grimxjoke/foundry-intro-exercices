@@ -9,6 +9,20 @@ import {AttackRedHawksVIP} from "src/replay-attack-3/AttackRedHawksVIP.sol";
 
 /**
 @dev run "forge test --match-contract RA3 -vvvvv" 
+@notice 🔥 The challenge is to use this approach and implement the solution in Foundry. Obviously, after you have implemented the orginal solution
+
+@notice This exercise has a different logic than original solution: The idea is to create multiple samrt contracts (~89 contracts).
+
+Here's the logic in javascript using AttackRedHawksVIP.sol:
+for (let i = 1; i <= 89; i++) {
+      j++;
+      this.attackredHawks = await AttackRedHawksFactory.deploy(
+        this.redHawks.address
+      );
+
+      this.attackredHawks.attack(i, j, "RedHawksRulzzz133", validSignature);
+      console.log(`Minted: ${i + j}, ${i + j + 1}`);
+    }
 */
 contract TestRA3 is Test {
     RedHawksVIP redHawks;
@@ -32,7 +46,18 @@ contract TestRA3 is Test {
         redHawks = new RedHawksVIP(vouchersSigner);
 
         // Create 2 NFTs voucher
+        // This is how the signature you found on Ethereum mempool was created
+        // Invalid signature (signed by another account)
+        // Invalid signer doesn't work
+        // Invalid data doesn't work
+        // Can use valid voucher
+        // 2 NFT minted
+        // Can't use voucher twice
     }
 
-    function testExploit() public {}
+    function testExploit() public {
+        /** CODE YOUR SOLUTION HERE */
+        /** SUCCESS CONDITIONS */
+        // Attacker got all 178 VIP Membership Tickets
+    }
 }
