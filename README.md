@@ -1,6 +1,5 @@
 # SCH Exercises Part 2 [Foundry Version]
 
-
 ![image](https://user-images.githubusercontent.com/91771249/227430056-d7971b2d-d707-49df-a10e-93c4118c76a6.png)
 _{Credit: Paradigm}_
 
@@ -46,7 +45,7 @@ forge init --force
 
 1.  🟢 DEX
 2.  🟢 Money Markets
-3.  🟡 Replay Attacks {Coming Soon...}
+3.  🟡 Replay Attacks {PRs accepted for exercise 3}
 4.  🟢 Flash Loans & Flash Swaps
 5.  ⚪ Flash Loan Attacks
 6.  ⚪ DoS Attacks
