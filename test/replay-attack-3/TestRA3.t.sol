@@ -10,24 +10,8 @@ import {AttackRedHawksVIP} from "src/replay-attack-3/AttackRedHawksVIP.sol";
 /**
 @dev run "forge test --match-contract RA3 -vvvvv" 
 
-@notice This exercise has a different logic than original solution: The idea is to create multiple samrt contracts (~89 contracts).
+@notice 🔥 The challenge is to solve this exercise by creating multiple samrt contracts instead of multiple EOAs and implement the solution in Foundry. 
 
-@notice 🔥 The challenge is to use this approach and implement the solution in Foundry. Obviously, after you have implemented the orginal solution,
-
-****************Hint****************
-Here's the logic in javascript using AttackRedHawksVIP.sol
-for (let i = 1; i <= 89; i++) {
-        //Creating the smart contract
-      this.attackredHawks = await AttackRedHawksFactory.deploy(
-        this.redHawks.address
-      );
-
-    //Using the smart contract to attack RedHawksVIP
-      j++;
-      this.attackredHawks.attack(i, j, "RedHawksRulzzz133", validSignature);
-      console.log(`Minted: ${i + j}, ${i + j + 1}`);
-    }
-****************Hint****************
 */
 contract TestRA3 is Test {
     RedHawksVIP redHawks;
