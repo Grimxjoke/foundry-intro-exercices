@@ -25,14 +25,14 @@ contract TestDEX1 is Test {
     uint128 constant TEN_ETH = 10 ether;
     uint128 constant HUNDRED_CHOCOLATES = 100 ether;
 
-    address deployer;
-    address user;
+    address deployer = makeAddr("deployer");
+    address user = makeAddr("user");
 
     IERC20 weth = IERC20(WETH_ADDRESS);
 
     function setUp() public {
-        deployer = address(123);
-        user = address(456);
+        vm.label(WETH_ADDRESS, "WETH");
+        vm.label(RICH_SIGNER, "RICH_SIGNER");
 
         vm.deal(user, 100 ether);
         address richSigner = RICH_SIGNER;

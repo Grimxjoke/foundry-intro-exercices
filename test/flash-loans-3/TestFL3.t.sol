@@ -24,6 +24,9 @@ contract TestFL3 is Test {
     IERC20 usdc;
 
     function setUp() public {
+        vm.label(USDC_ADDRESS, "USDC");
+        vm.label(WETH_USDC_PAIR, "WethUsdcPair");
+
         // TODO: Get contract objects for relevant On-Chain contracts
         usdc = IERC20(USDC_ADDRESS);
 

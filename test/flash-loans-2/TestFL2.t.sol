@@ -24,6 +24,9 @@ contract TestFL2 is Test {
     IERC20 usdc;
 
     function setUp() public {
+        vm.label(USDC_ADDRESS, "USDC");
+        vm.label(AAVE_LENDING_POOL_ADDRESS, "AaveLendingPool");
+
         // TODO: Get contract objects for relevant On-Chain contracts
         usdc = IERC20(USDC_ADDRESS);
 
