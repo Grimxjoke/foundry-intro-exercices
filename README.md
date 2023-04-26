@@ -48,7 +48,7 @@ forge init --force
 3.  🟣 Replay Attacks {Challenge: Exercise 3}
 4.  🟢 Flash Loans & Flash Swaps
 5.  🟢 Flash Loan Attacks
-6.  ⚪ DoS Attacks
+6.  🟢 DoS Attacks
 7.  ⚪ Sensitive On-Chain Data
 8.  ⚪ Unchecked Returns
 9.  ⚪ Frontrunning
