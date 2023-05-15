@@ -22,7 +22,7 @@ contract TestMM1 is Test {
 
     uint128 constant USER_USDC_BALANCE = 100000e6;
     uint128 constant AMOUNT_TO_DEPOSIT = 10000e6;
-    uint128 constant AMOUNT_TO_BORROW = 100 ether;
+    uint128 constant AMOUNT_TO_BORROW = 10000e5;
 
     address user = makeAddr("user");
 
@@ -38,9 +38,10 @@ contract TestMM1 is Test {
         vm.label(DAI, "DAI");
         vm.label(AUSDC, "aUSDC");
         vm.label(VARIABLE_DEBT_DAI, "DebtDAI");
-        
+
         // Load tokens
         vm.startPrank(user);
+        aaveUser = new AaveUser(AAVE_POOL, USDC, DAI);
         usdc = IERC20(USDC);
         dai = IERC20(DAI);
         aUSDC = IERC20(AUSDC);
@@ -58,6 +59,8 @@ contract TestMM1 is Test {
         // Burn DAI balance form the user
         vm.prank(user);
         dai.transfer(address(0x000000000000000000000000000000000000dEaD), dai.balanceOf(user));
+
+        // Create Instance of AAve User
     }
 
     function test_Attack() public {
@@ -72,7 +75,7 @@ contract TestMM1 is Test {
         aaveUser.depositUSDC(AMOUNT_TO_DEPOSIT);
 
         // TODO: Validate that the depositedAmount state var was changed
-        assertEq(aaveUser.depositedAmount(), AMOUNT_TO_DEPOSIT);
+        assertEq(aaveUser.depositedAmount(address(user)), AMOUNT_TO_DEPOSIT);
 
         // TODO: Validate that your contract received the aUSDC tokens (receipt tokens)
         assertEq(aUSDC.balanceOf(address(aaveUser)), AMOUNT_TO_DEPOSIT);
@@ -80,7 +83,7 @@ contract TestMM1 is Test {
         // TODO: borrow 100 DAI tokens
         aaveUser.borrowDAI(AMOUNT_TO_BORROW);
         // TODO: Validate that the borrowedAmount state var was changed
-        assertEq(aaveUser.borrowedAmount(), AMOUNT_TO_BORROW);
+        assertEq(aaveUser.borrowedAmount(address(user)), AMOUNT_TO_BORROW);
         // TODO: Validate that the user received the DAI Tokens
         assertEq(dai.balanceOf(user), AMOUNT_TO_BORROW);
         // TODO: Validate that your contract received the DAI variable debt tokens
@@ -90,7 +93,7 @@ contract TestMM1 is Test {
         aaveUser.repayDAI(AMOUNT_TO_BORROW);
 
         // TODO: Validate that the borrowedAmount state var was changed
-        assertEq(aaveUser.borrowedAmount(), 0);
+        assertEq(aaveUser.borrowedAmount(address(user)), 0);
         // TODO: Validate that the user doesn't own the DAI tokens
         assertEq(dai.balanceOf(user), 0);
 
@@ -100,7 +103,7 @@ contract TestMM1 is Test {
         // TODO: Withdraw all your USDC
         aaveUser.withdrawUSDC(AMOUNT_TO_DEPOSIT);
         // TODO: Validate that the depositedAmount state var was changed
-        assertEq(aaveUser.depositedAmount(), 0);
+        assertEq(aaveUser.depositedAmount(address(user)), 0);
 
         // TODO: Validate that the user got the USDC tokens back
         assertEq(usdc.balanceOf(user), balBefore);
